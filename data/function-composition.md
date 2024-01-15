@@ -24,7 +24,7 @@ The ordering of the operations is important. If we change the order of the opera
 
 Now lets abstract away the individual compositions. Again, as long as we can build up the original, we have a copacetic decomposition. We can write the decomposition as:
 
-- $ \Theta_{n=1}^{3} f_i = f$
+- $\Theta_{n=1}^{3} f_i = f$
 
 Let $\Theta$ be the equivalent to the summation operator $\Sigma$ but for function composition. The lower bound is the starting function and the upper bound is the final function. The index is the order of the function composition.
 
@@ -32,32 +32,32 @@ Let $\Theta$ be the equivalent to the summation operator $\Sigma$ but for functi
 
 Let's say we want to compute the derivative of the function $f(x) = f_3 ∘ f_2 ∘ f_1$. We can use the chain rule to compute the derivative of the composition of functions. The chain rule states that:
 
-- $ \frac{d}{dx} f(g(x)) = f'(g(x)) * g'(x)$
+- $\frac{d}{dx} f(g(x)) = f'(g(x)) * g'(x)$
 
 We can apply this rule to our function composition:
 
-- $ \frac{d}{dx} f(x) = \frac{d}{dx} f_3(f_2(f_1(x))) = f_3'(f_2(f_1(x))) * f_2'(f_1(x)) * f_1'(x)$
+- $\frac{d}{dx} f(x) = \frac{d}{dx} f_3(f_2(f_1(x))) = f_3'(f_2(f_1(x))) * f_2'(f_1(x)) * f_1'(x)$
 
 Yup. It's chain rule all the way down. We can apply this rule to any function composition. The chain rule is a powerful tool for computing the derivative of a function composition.
 
 Symbolically, meaning without variables, we can write the chain rule as:
 
-- $ \frac{d}{dx} f = \frac{d}{dx} (f_3 ∘ f_2 ∘ f_1) = f_3' ∘ f_2 ∘ f_1 * f_2' ∘ f_1 * f_1'$
+- $\frac{d}{dx} f = \frac{d}{dx} (f_3 ∘ f_2 ∘ f_1) = f_3' ∘ f_2 ∘ f_1 * f_2' ∘ f_1 * f_1'$
 
 Because of the nature of the chain rule and nested nature of function composition, we can write the derivative of a function composition recursively. Let's define the derivative of a function composition as:
 
-- $ \frac{d}{dx} f = \frac{d}{dx} (f_3 ∘ f_2 ∘ f_1) = f_3' * \frac{d}{dx} (f_2 ∘ f_1)$
+- $\frac{d}{dx} f = \frac{d}{dx} (f_3 ∘ f_2 ∘ f_1) = f_3' * \frac{d}{dx} (f_2 ∘ f_1)$
 
 ## Grand Unified Theory of Deriving Function Compositions
 
 Now we can incorporate the function composition syntax to reduce the number of terms in the derivative of a function composition. Let's define the derivative of a function composition as:
 
-- $ \frac{d}{dx} f = \frac{d}{dx} \Theta_{n=1}^{3} f_i = f_3' * \frac{d}{dx} \Theta_{n=1}^{2} f_i$
+- $\frac{d}{dx} f = \frac{d}{dx} \Theta_{n=1}^{3} f_i = f_3' * \frac{d}{dx} \Theta_{n=1}^{2} f_i$
 
 We can continue to apply this rule until we get to the derivative of the first function in the composition. We can then apply the chain rule to get the derivative of the first function in the composition. We can write this as:
 
 Setting some general bounds and replacing the $3$ with $m$, we get the general form of the derivative of a function composition:
 
-- $ \frac{d}{dx} f = \frac{d}{dx} \Theta_{n=1}^{m} f_i = f_m' * \frac{d}{dx} \Theta_{n=1}^{m-1} f_i$
+- $\frac{d}{dx} f = \frac{d}{dx} \Theta_{n=1}^{m} f_i = f_m' * \frac{d}{dx} \Theta_{n=1}^{m-1} f_i$
 
 I think this is a pretty cool result.
